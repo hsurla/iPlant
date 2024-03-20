@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            body{
+                background-image: url("images/background-image2.jpeg");
+            }
+            .form{
+                text-align: center;
+                border: 1px;
+            }
+            input{
+                width: 1000px;
+                height: 50px;
+                background-color: white;
+                text-align: center;
+            }
+            button{
+                height: 55px;
+            }
+            nav{
+                text-align: center;
+            }
+            nav a{
+                display: inline-block;
+                color: white;
+                padding: 14px 16px;
+                text-decoration: none;
+                border: 2px solid transparent;
+            }
+            nav a:hover{
+                border: 3px solid black;
+            }
+            header a.logo{
+                text-align: left;
+            }
+            header img{
+                max-width: 100px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                color: #fff;
+                position: relative;
+            }
+            .logo-container{
+                display: flex;
+                align-items: center;
+            }
+            .logo{
+                display: block;
+                align-items: center;
+            }
+            .user-details{
+                display: flex;
+                align-items: center;
+            }
+            .user-details img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 10px;
+            }
+            .cart-button{
+                position: absolute;
+                right: 150px;
+            }
+            #cart-count {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                padding: 5px;
+                font-size: 12px;
+            }
+            a.cart-icon{
+                font-size: 24px;
+                color: #fff;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+            a.cart-icon:hover{
+                color: #f0f0f0;
+            }
+            .user1{
+                text-decoration: none;
+                color: white;
+            }
+            ul{
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            ul li {
+                display: inline-block;
+                position: relative;
+            }
+            ul li:hover ul {
+                display: block;
+            }
+            ul li ul {
+                position: absolute;
+                width: 100px;
+                height: 75px;
+                display: none;
+                background-color: white;
+                right: 0;
+            }
+            ul li ul li {
+                height: 25px;
+                display: block;
+            }
+            ul li ul li a {
+                display: block !important;
+                color: black;
+                padding: 1px;
+            }
+            .menu{
+                position: relative;
+                right: 575px;
+                display: inline-block;
+            }
+            .menu_content{
+                display: none;
+                position: absolute;
+                min-width: 160px;
+                background-color: white;
+                border: 1px solid #ccc;
+                left: 0;
+            }
+            .menu:hover .menu_content{
+                display: block;
+            }
+            .menu_content a{
+                color: black;
+                text-decoration: none;
+                display: block;
+                padding: 8px 16px;
+            }
+            .menu:hover{
+                display: block;
+            }
+            .menu_content a:hover{
+                background-color: #777;
+            }
+            .menu_btn{
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: large;
+                cursor: pointer;
+            }
+            .menu_btn:hover{
+                transition: all 0.2s;
+            }
+            .gallery-container{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+                justify-content: center;
+            }
+            div.gallery{
+                margin: 10px;
+                border: 1px solid #ccc;
+                float: left;
+                width: 500px;
+            }
+            div.gallery:hover{
+                border: 1px solid #777;
+            }
+            div.gallery img{
+                max-width: 1000px;
+                max-height: 1000px;
+                width: 500px;
+                height: 500px;
+            }
+            div a{
+                text-decoration: none;
+                color: black;
+            }
+            div.desc{
+                width: fill;
+                padding: 15px;
+                text-align: center;
+                background-color: #FFFDD0;
+            }
+            
+        </style>
+        <script>
+            let cartCount = 0;
+
+            function addToCart(){
+                cartCount++;
+                document.getElementById('cart-count').textContent = cartCount;
+            }
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-container">
+                <a href="iPlant.html" class="logo"><img src="images\logo.png"></href></a>
+            </div>
+            <div class="menu">
+                <button class="menu_btn">Menu</button>
+                <div class="menu_content">
+                    <a href="#"><p>Customer Service</p></a>
+                    <a href="#"><p>Tools</p></a>
+                </div>
+            </div>
+            <div class="cart-button">
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="user-details">
+                <ul>
+                    <li>
+                        <a href="#" class="user"><img src="images\user-profile.jpg"></a>
+                        <a href="#" class="user1"><span>User123</span></a>
+                        <ul>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="Help.html">Help</a></li>
+                            <li><a href="signout.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header><br>
+
+        <form class="form">
+            <input type="text" placeholder="Search">
+            <button type="submit">Search</button>
+        </form><br>
+        
+        <nav>
+            <a href="#">All</a>
+            <a href="#">Indoor</a>
+            <a href="#">Outdoor</a>
+            <a href="#">Recommendation</a>
+        </nav><br>
+
+        <div class="gallery-container">
+            <div class="gallery">
+                <a href="plant1.html">
+                    <img src="images/plant1.jpeg">
+                <div class="desc">Philodendron ₹750.00</div>
+                </a>
+            </div>
+            <div class="gallery">
+                <a href="plant2.html">
+                    <img src="images/plant2.jpeg">
+                <div class="desc">Variegated Pothos ₹500.00</div>
+                </a>
+            </div>
+            <div class="gallery">
+                <a href="plant3.html">
+                    <img src="images/plant3.jpeg">
+                <div class="desc">White Snake ₹450.00</div>
+                </a>
+            </div>
+            <div class="gallery">
+                <a href="plant4.html">
+                    <img src="images/plant4.jpeg">
+                <div class="desc">Monstera ₹350.00</div>
+                </a>
+            </div>
+            <div class="gallery">
+                <a href="plant5.html">
+                    <img src="images/plant5.jpeg">
+                <div class="desc">Fiddle Leaf ₹700.00</div>
+                </a>
+            </div>
+            <div class="gallery">
+                <a href="plant6.html">
+                    <img src="images/plant6.jpeg">
+                <div class="desc">Duckweed ₹450.00</div>
+                </a>
+            </div>
+        </div>
+    </body>
+</html>
