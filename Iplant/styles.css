@@ -7,7 +7,7 @@ img {
 }
 
 .w2{
-   background-image:url("C:/Users/nalam/OneDrive/Pictures/Documents/Iplant/images/booking_background.jpg");
+   background-image:url("images/booking_background.jpg");
 }
   
 
@@ -277,13 +277,13 @@ font-size: 20px;
   position: relative;
   padding: 15px 50px;
   margin-left: 320px;
-  top: -1150px;
+  top: -1350px;
 }
 
 .clipper{
  position:relative;
- top:-1490px;
- margin-left: 615px;
+ top:-1450px;
+ margin-left: 125px;
 }
 
 .but8{
