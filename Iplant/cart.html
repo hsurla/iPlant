@@ -153,19 +153,19 @@
 
             document.addEventListener('DOMContentLoaded', function () {
                 const cartItemsContainer = document.getElementById('cart-items');
-                storedCartItems.forEach((plant, index) => {
-                    const plantDiv = document.createElement('div');
-                    plantDiv.classList.add('cart-item');
-                    plantDiv.innerHTML = `
-                    <img src="${plant.image}" alt="${plant.name}">
+                storedCartItems.forEach((product, index) => {
+                    const productDiv = document.createElement('div');
+                    productDiv.classList.add('cart-item');
+                    productDiv.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
                     <div>
-                    <p>${plant.name} - ₹<span class="price">${plant.price * plant.quantity}</span> <br>
-                        Quantity: <input type="number" value="${plant.quantity}" min="1" class="quantity" data-index="${index}" onchange="updateQuantity(this)">
+                    <p>${product.name} - ₹<span class="price">${product.price * product.quantity}</span> <br>
+                        Quantity: <input type="number" value="${product.quantity}" min="1" class="quantity" data-index="${index}" onchange="updateQuantity(this)">
                         <button onclick="removeItem(${index})" class="rmv_item">Remove</button>
                         </p>
                     </div>
                     `;
-                    cartItemsContainer.appendChild(plantDiv);
+                    cartItemsContainer.appendChild(productDiv);
                 });
                 updateTotalAmount();
             });
