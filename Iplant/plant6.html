@@ -45,6 +45,16 @@
                 position: absolute;
                 right: 150px;
             }
+            #cart-count {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                padding: 5px;
+                font-size: 12px;
+            }
             a.cart-icon{
                 font-size: 24px;
                 color: #fff;
@@ -157,6 +167,33 @@
                 cursor: pointer;
             }
         </style>
+        <script>
+            let cartCount = 0;
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            function addToCart(plant){
+                let found=false;
+                cartItems.forEach(item => {
+                    if (item.name === plant.name) {
+                        item.quantity++;
+                        found = true;
+                    }
+                });
+                if (!found) {
+                    plant.quantity = 1;
+                    cartItems.push(plant);
+                }
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCartCount();
+            }
+
+            function updateCartCount(){
+                const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = cartCount;
+            }
+
+            window.onload = updateCartCount;
+        </script>
     </head>
     <body>
         <header class="header">
@@ -172,6 +209,7 @@
             </div>
             <div class="cart-button">
                 <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <span id="cart-count">0</span>
             </div>
             <div class="user-details">
                 <ul>
@@ -196,7 +234,7 @@
                 <h2>Duckweed</h2>
                 <p class="prod_desc">Duckweed is a small, free-floating aquatic plant that belongs to the Lemnaceae family. It is known for its rapid growth and its ability to cover the surface of still or slow-moving bodies of water.</p>
                 <p class="prod_desc">₹450</p>
-                <a href="#"> <button type="button" class="addtocart">Add to cart</button></a>
+                <a href="#"> <button type="button" class="addtocart" onclick="addToCart({name: 'Variegated Pothos', price: 500, image: 'h_images/plant2.jpeg'})">Add to cart</button></a>
             </div>
         </div>
     </body>

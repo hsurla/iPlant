@@ -170,11 +170,30 @@
         </style>
         <script>
             let cartCount = 0;
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            function addToCart(){
-                cartCount++;
+            function addToCart(plant){
+                let found=false;
+                cartItems.forEach(item => {
+                    if (item.name === plant.name) {
+                        item.quantity++;
+                        found = true;
+                    }
+                });
+                if (!found) {
+                    plant.quantity = 1;
+                    cartItems.push(plant);
+                }
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCartCount();
+            }
+
+            function updateCartCount(){
+                const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
                 document.getElementById('cart-count').textContent = cartCount;
             }
+
+            window.onload = updateCartCount;
         </script>
     </head>
     <body>
@@ -190,7 +209,8 @@
                 </div>
             </div>
             <div class="cart-button">
-                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <span id="cart-count">0</span>
             </div>
             <div class="user-details">
                 <ul>
@@ -215,7 +235,7 @@
                 <h2>Philodendron</h2>
                 <p class="prod_desc">Philodendron is a popular genus of tropical plants known for their attractive foliage and adaptability to various indoor conditions. There are numerous species and cultivars within the Philodendron genus, and they are part of the larger Araceae family.</p>
                 <p class="prod_desc">₹750</p>
-                <a href="#"> <button type="button" class="addtocart" onclick="addToCart()">Add to cart</button></a><br>
+                <a href="#"> <button type="button" class="addtocart" onclick="addToCart({name: 'Philodendron', price: 750, image: 'h_images/plant1.jpeg'})">Add to cart</button></a><br>
             </div>
         </div>
         
