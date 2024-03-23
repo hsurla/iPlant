@@ -6,11 +6,17 @@
 <body class="w2">
   <p>Select the stage at which you wish to buy your plant</p>
   <div class="button-container">
-    <button class="btn success">Seedlings</button>
-    <button class="btn sapling">Saplings</button>
-    <button class="btn flowering">Flowering</button>
-    <button class="btn fruiting">Fruiting</button>
+    <input class="btn seedling" type="button" value="Seedling" onclick="goto('webpage6.html')">
+    <input class="btn sapling" type="button" value="Saplings" onclick="goto('webpage6.html')">
+    <input class="btn flowering" type="button" value="Flowering" onclick="goto('webpage6.html')">
+    <input class="btn fruiting" type="button" value="Fruiting" onclick="goto('webpage6.html')">  
   </div>
   <img src="s_images/img1.jpg" alt="Plant">
+
+  <script>
+    function goto(url) {
+      window.location.href = url;
+    }
+  </script>
 </body>
 </html>
