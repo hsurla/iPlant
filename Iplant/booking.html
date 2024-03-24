@@ -16,47 +16,109 @@ doorstep</pre>
 
 <div class="dropdown">
    <p class="date" style="font-size:19px;">Date:
-   <input type="date">
+   <input type="date" id="Date">
 
 </p>
 
    <p class="time">Time slot:
-    <select name="time" id="cars" style= "border-radius: 5px;">
+    <select name="time" id="timeSlot" style= "border-radius: 5px;">
    <option value="" disabled selected>Select time slot</option>
-   <option value="morning">8:00-10:00AM</option>
-   <option value="afternoon">11:00-1:00PM</option>
-   <option value="evening">3:00-5:00PM</option>
-   <option value="night">6:00-8:00PM</option>
+   <option value="8:00-10:00AM">8:00-10:00AM</option>
+   <option value="11:00-1:00PM">11:00-1:00PM</option>
+   <option value="3:00-5:00PM">3:00-5:00PM</option>
+   <option value="6:00-8:00PM">6:00-8:00PM</option>
 </select>
   </p>
     
 <p class="time">Select Nursery:
-    <select name="time" id="cars" style= "border-radius: 5px;">
+    <select name="time" id="nursery" style= "border-radius: 5px;">
    <option value="" disabled selected>Select Nursery</option>
-   <option value="nursery1">Satyadeva Landscaper</option>
-   <option value="nursery2">Akhanda Nursery</option>
-   <option value="nursery3">Eco Friends</option>
-   <option value="nursery4">Grow the garden store</option>
+   <option value="Satyadeva Landscaper">Satyadeva Landscaper</option>
+   <option value="Akhanda Nursery">Akhanda Nursery</option>
+   <option value="Eco Friends">Eco Friends</option>
+   <option value="Grow the garden store">Grow the garden store</option>
 </select>
   </p>
 
-<select style="width:300px; font-size:17px;  border-radius: 5px;">
+<select id="service" style="width:300px; font-size:17px;  border-radius: 5px;">
 <option value="" disabled selected>What are you looking for?</option>
-<option value="func1">Pest Issues</option>
-   <option value="func2">Place constraints</option>
-   <option value="func3">Watering/Care</option>
-   <option value="func4">Fertilize</option>
-   <option value="func5">Grooming</option>
-   <option value="func6">Overall Check</option>
+<option value="Pest Issues">Pest Issues</option>
+   <option value="Place constraints">Place constraints</option>
+   <option value="Watering Care">Watering Care</option>
+   <option value="Fertilize">Fertilize</option>
+   <option value="Grooming">Grooming</option>
+   <option value="Overall Check">Overall Check</option>
 </select>
 <br>
 <br>
-<input type="submit" style="font-size: 19px; background-color: #27ae60; color: #ffffff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+<input type="submit" id="submitButton" style="font-size: 19px; background-color: #27ae60; color: #ffffff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
 </div>
 
 </div>
 
 <img class ="img" src="s_images/book_img2.jpg" alt="abc">
+
+<div class="overlay" id="overlay"></div>
+
+<div class="dialog-box" id="dialogBox">
+  <div class="dialog-content">
+      <h2>Receipt</h2>
+      <p class="data" id="dateoutput"> Date:</p>
+      <p class="data" id="timeoutput">Time:</p>
+      <p class="data" id="nurseryoutput">Nursery:</p>
+      <p class="data" id="serviceoutput">Service:</p>
+       
+      <button onclick="goto('cart.html')">Confirm</button>
+  </div>
+</div>
+
+<script>
+  function goto(url) {
+       window.location.href = url;
+     }
+  // JavaScript for displaying dialog box on submit button click
+  document.addEventListener('DOMContentLoaded', function () {
+      const submitButton = document.getElementById('submitButton');
+      const overlay = document.getElementById('overlay');
+      const dialogBox = document.getElementById('dialogBox');
+
+      function openDialog() {
+        overlay.style.display = 'block';
+          dialogBox.style.display = 'block';
+
+          date();
+          time();
+          nursery();
+          service();
+      }  
+
+      // Open the dialog when the submit button is clicked
+      submitButton.addEventListener('click', function () {
+          openDialog();
+      });
+
+  });
+
+  function date(){
+    var a = document.getElementById("Date").value;
+    document.getElementById("dateoutput").innerText = "Date :" + a;
+  }
+
+  function time(){
+    var b = document.getElementById("timeSlot").value;
+    document.getElementById("timeoutput").innerText = "Time :" + b;
+  }
+
+  function nursery(){
+    var b = document.getElementById("nursery").value;
+    document.getElementById("nurseryoutput").innerText = "Nursery :" + b;
+  }
+
+  function service(){
+    var b = document.getElementById("service").value;
+    document.getElementById("serviceoutput").innerText = "Service :" + b;
+  }
+</script>
 
 </body>
 </html>

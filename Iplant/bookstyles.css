@@ -75,3 +75,45 @@ top:180px;
 height:400px;
 width:400px;
 }
+
+.dialog-box{
+  position: fixed;
+  top:50%;
+  left:40%;
+  display: none;
+  border-radius: 8px;
+  border: 2px solid;
+  background-color:bisque;
+  max-width: 400px;
+  
+}
+
+.dialog-content{
+  text-align: center;
+}
+
+.dialog-content h2{
+  margin-top: 0;
+}
+
+.dialog-content button{
+  padding: 8px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; /* Ensure it covers everything */
+  display: none; /* Initially hidden */
+}
+
+.data {
+  max-width: 300px; /* Maximum width for the data section */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Show ellipsis for overflow text */
+}
