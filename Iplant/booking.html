@@ -2,6 +2,54 @@
 <html>
 <head>
     <link rel="stylesheet" href="bookstyles.css">
+    <script>
+      function goto(url) {
+           window.location.href = url;
+         }
+      // JavaScript for displaying dialog box on submit button click
+      document.addEventListener('DOMContentLoaded', function () {
+          const submitButton = document.getElementById('submitButton');
+          const overlay = document.getElementById('overlay');
+          const dialogBox = document.getElementById('dialogBox');
+    
+          function openDialog() {
+            overlay.style.display = 'block';
+              dialogBox.style.display = 'block';
+    
+              date();
+              time();
+              nursery();
+              service();
+          }  
+    
+          // Open the dialog when the submit button is clicked
+          submitButton.addEventListener('click', function () {
+              openDialog();
+          });
+    
+      });
+    
+      function date(){
+        var a = document.getElementById("Date").value;
+        document.getElementById("dateoutput").innerText = "Date :" + a;
+      }
+    
+      function time(){
+        var b = document.getElementById("timeSlot").value;
+        document.getElementById("timeoutput").innerText = "Time :" + b;
+      }
+    
+      function nursery(){
+        var b = document.getElementById("nursery").value;
+        document.getElementById("nurseryoutput").innerText = "Nursery :" + b;
+      }
+    
+      function service(){
+        var b = document.getElementById("service").value;
+        document.getElementById("serviceoutput").innerText = "Service :" + b;
+      }
+    </script>
+    
 </head>
 <body>
     
@@ -68,57 +116,10 @@ doorstep</pre>
       <p class="data" id="nurseryoutput">Nursery:</p>
       <p class="data" id="serviceoutput">Service:</p>
        
-      <button onclick="goto('cart.html')">Confirm</button>
+      <button onclick="alert('hello')">Confirm</button>
   </div>
 </div>
 
-<script>
-  function goto(url) {
-       window.location.href = url;
-     }
-  // JavaScript for displaying dialog box on submit button click
-  document.addEventListener('DOMContentLoaded', function () {
-      const submitButton = document.getElementById('submitButton');
-      const overlay = document.getElementById('overlay');
-      const dialogBox = document.getElementById('dialogBox');
-
-      function openDialog() {
-        overlay.style.display = 'block';
-          dialogBox.style.display = 'block';
-
-          date();
-          time();
-          nursery();
-          service();
-      }  
-
-      // Open the dialog when the submit button is clicked
-      submitButton.addEventListener('click', function () {
-          openDialog();
-      });
-
-  });
-
-  function date(){
-    var a = document.getElementById("Date").value;
-    document.getElementById("dateoutput").innerText = "Date :" + a;
-  }
-
-  function time(){
-    var b = document.getElementById("timeSlot").value;
-    document.getElementById("timeoutput").innerText = "Time :" + b;
-  }
-
-  function nursery(){
-    var b = document.getElementById("nursery").value;
-    document.getElementById("nurseryoutput").innerText = "Nursery :" + b;
-  }
-
-  function service(){
-    var b = document.getElementById("service").value;
-    document.getElementById("serviceoutput").innerText = "Service :" + b;
-  }
-</script>
 
 </body>
 </html>

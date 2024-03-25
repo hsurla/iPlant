@@ -5,7 +5,7 @@
 
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color:#3D860B  ;
 }
 
 .topnav a{
@@ -20,6 +20,20 @@
 
 .topnav a:hover{
   background-color: gray;
+}
+
+.shopping-cart-icon {
+  color: #f2f2f2;
+  margin-left: 120px;
+  position: relative;
+  top: -16px;
+  cursor: pointer;
+}
+
+.number{
+  position: relative;
+  top: -10px;
+  color:white;
 }
 
 .abc{
@@ -163,12 +177,12 @@ font-size: 20px;
   position: relative;
   padding: 15px 50px;
   margin-left: 940px;
-  top: -1105px;
+  top: -1100px;
 }
 
 .cow{
  position:relative;
- top: -1050px;
+ top: -1080px;
  margin-left: 295px;
 }
 
@@ -176,20 +190,20 @@ font-size: 20px;
  position: relative;
 font-size: 20px;
  margin-left: 297px;
- top: -1037px;
+ top: -1064px;
 }
 
 .but7{
   position: relative;
   padding: 15px 50px;
   margin-left: 312px;
-  top: -1040px;
+  top: -1245px;
 }
 
 .rooting{
  position:relative;
- top:-1350px;
- margin-left: 630px;
+ top:-1330px;
+ margin-left: 150px;
 }
 
 .but8{
