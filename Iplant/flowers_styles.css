@@ -126,6 +126,10 @@ img {
   padding:10px 15px;
   }
 
+  .active{
+    cursor: pointer;
+  }
+
   .shopping-cart-icon {
     color: #f2f2f2;
     margin-left: 120px;

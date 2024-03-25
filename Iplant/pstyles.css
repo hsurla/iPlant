@@ -22,6 +22,10 @@
   background-color: gray;
 }
 
+.active{
+  cursor: pointer;
+}
+
 .shopping-cart-icon {
   color: #f2f2f2;
   margin-left: 120px;
