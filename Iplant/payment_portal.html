@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+            background-image: url("h_images/background-image2.jpeg");
+            font-family: Arial, sans-serif;
+            color: #fff;
+        }
+        header a.logo{
+                text-align: left;
+            }
+            header img{
+                max-width: 100px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+            }
+            .logo-container{
+                display: flex;
+                align-items: center;
+            }
+            .logo{
+                display: block;
+                align-items: center;
+            }
+            .payment-info {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .payment-info h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .payment-info p {
+            font-size: 18px;
+        }
+        .payment-methods {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .payment-methods h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .payment-methods ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .payment-methods li {
+            margin-bottom: 10px;
+            margin-right: 20px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .payment-methods li img {
+            max-width: 100px;
+            height: auto;
+        }
+
+        .payment-methods li p {
+            margin: 0;
+            font-size: 16px;
+        }
+            
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let totalAmount = 0;
+
+            storedCartItems.forEach(item => {
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById('totalAmount').textContent = totalAmount;
+        });
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-container">
+                <a href="iPlant.html" class="logo"><img src="h_images\logo.png"></href></a>
+            </div>
+        </header>
+
+        <div class="payment-info">
+            <h1>Amount to be Paid</h1>
+            <p>Total Amount: ₹<span id="totalAmount"></span></p>
+        </div>
+
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <ul>
+                <li>
+                    <img src="credit_card_icon.png" alt="Credit Card">
+                    <p>Credit/Debit Card</p>
+                </li>
+                <li>
+                    <img src="debit_card_icon.png" alt="Debit Card">
+                    <p>Cash on Delivery</p>
+                </li>
+                <li>
+                    <img src="paypal_icon.png" alt="PayPal">
+                    <p>UPI</p>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

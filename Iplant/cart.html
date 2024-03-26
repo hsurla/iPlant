@@ -173,15 +173,19 @@
             function updateQuantity(input) {
             const index = input.dataset.index;
             const quantity = parseInt(input.value);
+            const price = storedCartItems[index].price;
+            const totalPrice = price * quantity;
+
             storedCartItems[index].quantity = quantity;
 
             // Update price
-            const priceElement = input.parentElement.previousElementSibling.querySelector('.price');
-            priceElement.textContent = storedCartItems[index].price * quantity;
+            const priceElement = input.parentElement.querySelector('.price');
+            priceElement.textContent = `${totalPrice}`;
 
             localStorage.setItem('cartItems', JSON.stringify(storedCartItems));
 
             updateTotalAmount();
+            
         }
 
             function removeItem(index){
@@ -193,6 +197,9 @@
             function updateTotalAmount() {
             let totalAmount = storedCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
             document.getElementById('total-amount').textContent = `Total Amount: ₹${totalAmount}`;
+        }
+        function payment_portal(){
+            window.location.href = "payment_portal.html";
         }
         </script>
     </head>
@@ -224,7 +231,7 @@
         <div class="total-amount" id="total-amount"></div>
 
         <div class="check_button">
-            <button class="checkout_btn">Checkout</button>
+            <button class="checkout_btn" onclick="payment_portal()">Checkout</button>
         </div>
     </body>
 </html>
