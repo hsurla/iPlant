@@ -6,13 +6,13 @@ import mongoose from "mongoose";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// Connect to MongoDB using Mongoose
+
 mongoose.connect("mongodb://localhost:27017/plantDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-// Define schema for user data
+
 const userSchema = new mongoose.Schema({
   firstName: String,
   lastName: String,
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
   address: String,
 });
 
-// Define schema for cart items
+
 const cartItemSchema = new mongoose.Schema({
   productId: String,
   name: String,
@@ -32,7 +32,7 @@ const cartItemSchema = new mongoose.Schema({
   userId: mongoose.Schema.Types.ObjectId,
 });
 
-// Create models based on the schemas
+
 const User = mongoose.model("User", userSchema);
 const CartItem = mongoose.model("CartItem", cartItemSchema);
 
@@ -41,7 +41,7 @@ const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static('public')); // Serve static files from the 'public' directory
+app.use(express.static('public')); 
 
 app.get("/", (req, res) => {
     res.sendFile(join(__dirname, "public", "signup.html"));
@@ -53,7 +53,7 @@ app.get("/login", (req, res) => {
 
 app.post("/submit", async (req, res) => {
     console.log("Received signup form submission:");
-    console.log(req.body);  // Log the request body to see the submitted data
+    console.log(req.body);  
 
     const newUser = new User({
         firstName: req.body.firstName,
@@ -83,7 +83,7 @@ app.post("/login", async (req, res) => {
         const user = await User.findOne({ email, password });
 
         if (user) {
-            // Serve iPlant.html from the 'public' directory
+            
             res.redirect(`/iPlant.html?firstName=${user.firstName}`);
         } else {
             res.send("Invalid email or password.");
@@ -94,24 +94,19 @@ app.post("/login", async (req, res) => {
     }
 });
 
-// New route to handle payment data submission
+
 app.post("/submit-payment", async (req, res) => {
     const { cartItems, paymentData } = req.body;
 
     try {
-        // Save payment data to the database
-        // Example: Assuming you have a Payment model
-        // const newPayment = new Payment(paymentData);
-        // await newPayment.save();
-
-        // Save cart items to the database
+        
         for (const item of cartItems) {
             const newCartItem = new CartItem({
                 productId: item.productId,
                 name: item.name,
                 price: item.price,
                 quantity: item.quantity,
-                // Add userId or other relevant properties if needed
+
             });
             await newCartItem.save();
         }
@@ -127,12 +122,7 @@ app.post("/book", async (req, res) => {
     const { date, time, nursery, service } = req.body;
 
     try {
-        // Save booking data to the database
-        // Example: Assuming you have a Booking model
-        // const newBooking = new Booking({ date, time, nursery, service });
-        // await newBooking.save();
-
-        // For now, let's just send a confirmation response
+        
         res.send("Booking Successful");
     } catch (error) {
         console.error(error);

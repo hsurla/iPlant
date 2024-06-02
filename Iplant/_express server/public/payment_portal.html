@@ -107,7 +107,7 @@
 
                 const paymentData = {
                     paymentMethod: form.elements['paymentMethod'].value,
-                    // Add other payment details here
+                    
                 };
 
                 const data = { cartItems, paymentData };
@@ -121,8 +121,8 @@
                 })
                 .then(response => {
                     if (response.ok) {
-                        localStorage.removeItem('cartItems'); // Clear the cart after successful payment
-                        window.location.href = 'order_confirmation.html'; // Redirect to order confirmation page
+                        localStorage.removeItem('cartItems'); 
+                        window.location.href = 'order_confirmation.html'; 
                     } else {
                         throw new Error('Payment submission failed');
                     }
@@ -151,7 +151,7 @@
                     <option value="upi">UPI</option>
                     <option value="cod">Cash on Delivery</option>
                 </select>
-                <!-- Add more payment fields as required -->
+                
                 <button type="submit">Submit Payment</button>
             </form>
         </div>
