@@ -1,0 +1,245 @@
+.nav {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color:#3D860B  ;
+}
+
+.topnav a{
+  position:relative;
+  font-size: 22px;
+  color: white;
+  text-decoration: none;
+  margin-left: 80px;
+  top:-27px;
+  padding: 14px 2px;
+}
+
+.topnav a:hover{
+  background-color: gray;
+}
+
+.active{
+  cursor: pointer;
+}
+
+.shopping-cart-icon {
+  color: #f2f2f2;
+  margin-left: 120px;
+  position: relative;
+  top: -16px;
+  cursor: pointer;
+}
+
+.number{
+  position: relative;
+  top: -10px;
+  color:white;
+}
+
+.abc{
+ position:relative;
+  margin-left:120px;
+  top: -25px;
+padding:10px 15px;
+}
+
+img.active {
+  position: relative; 
+  top: 0px; 
+  right: -50px;
+  border: 10px solid #e0e0eb;
+}
+
+.gal{
+ position:relative;
+ text-decoration:None;
+color: black;
+margin-left: 235px;
+}
+
+.humic{
+  position: relative;
+  top: 20px;
+  margin-left:70px;
+}
+
+.p1{
+ position: relative;
+font-size: 20px;
+ margin-left: 290px;
+ top: 20px;
+
+}
+
+
+.but1{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 320px;
+  top: -160px;
+}
+
+.humi{
+ position:relative;
+ top: 100px;
+ right: 190px;
+}
+
+.p2{
+ position: relative;
+font-size: 20px;
+ margin-left: 320px;
+ top: 75px;
+}
+
+.but2{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 320px;
+  top: -105px;
+}
+
+.protec{
+ position:relative;
+ top:-527px;
+ margin-left: 120px;
+}
+
+.p3{
+ position: relative;
+font-size: 20px;
+ margin-left: 620px;
+ top: -550px;
+}
+
+.but3{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 625px;
+  top: -730px;
+}
+
+.tonic{
+ position:relative;
+ top:-810px;
+ margin-left: 120px;
+}
+
+.p4{
+ position: relative;
+font-size: 20px;
+ margin-left: 910px;
+ top: -832px;
+}
+
+.but4{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 950px;
+  top: -847px;
+}
+
+.organic{
+ position:relative;
+ top:-800px;
+ margin-left: 620px;
+ 
+}
+
+.but5{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 630px;
+  top: -990px;
+}
+
+.p5{
+ position: relative;
+font-size: 20px;
+ margin-left: 620px;
+ top: -805px;
+}
+
+.flora{
+ position:relative;
+ top:-1070px;
+ margin-left: 115px;
+}
+
+.p6{
+ position: relative;
+font-size: 20px;
+ margin-left: 940px;
+ top: -1093px;
+}
+
+.but6{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 940px;
+  top: -1100px;
+}
+
+.cow{
+ position:relative;
+ top: -1080px;
+ margin-left: 295px;
+}
+
+.p7{
+ position: relative;
+font-size: 20px;
+ margin-left: 297px;
+ top: -1064px;
+}
+
+.but7{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 312px;
+  top: -1245px;
+}
+
+.rooting{
+ position:relative;
+ top:-1330px;
+ margin-left: 150px;
+}
+
+.but8{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 660px;
+  top: -1525px;
+}
+
+.p8{
+ position: relative;
+font-size: 20px;
+ margin-left: 590px;
+ top: -1350px;
+}
+
+.grow{
+ position:relative;
+ top:-1615px;
+ margin-left: 105px;
+}
+
+.p9{
+ position: relative;
+font-size: 20px;
+ margin-left: 955px;
+ top: -1635px;
+}
+
+.but9{
+  position: relative;
+  padding: 15px 50px;
+  margin-left: 962px;
+  top: -1637px;
+}

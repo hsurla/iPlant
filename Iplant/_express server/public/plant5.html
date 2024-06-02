@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            body{
+                background-image: url("h_images/background-image2.jpeg");
+            }
+            header a.logo{
+                text-align: left;
+            }
+            header img{
+                max-width: 100px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                color: #fff;
+                position: relative;
+            }
+            .logo-container{
+                display: flex;
+                align-items: center;
+            }
+            .logo{
+                display: block;
+                align-items: center;
+            }
+            .user-details{
+                display: flex;
+                align-items: center;
+            }
+            .user-details img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 10px;
+            }
+            .cart-button{
+                position: absolute;
+                right: 150px;
+            }
+            #cart-count {
+                position: absolute;
+                top: -10px;
+                right: -10px;
+                background-color: red;
+                color: white;
+                border-radius: 50%;
+                padding: 5px;
+                font-size: 12px;
+            }
+            a.cart-icon{
+                font-size: 24px;
+                color: #fff;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+            a.cart-icon:hover{
+                color: #f0f0f0;
+            }
+            .user1{
+                text-decoration: none;
+                color: white;
+            }
+            ul{
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            ul li {
+                display: inline-block;
+                position: relative;
+            }
+            ul li:hover ul {
+                display: block;
+            }
+            ul li ul {
+                position: absolute;
+                width: 100px;
+                height: 75px;
+                display: none;
+                background-color: white;
+                right: 0;
+            }
+            ul li ul li {
+                height: 25px;
+                display: block;
+            }
+            ul li ul li a {
+                display: block !important;
+                color: black;
+                padding: 1px;
+            }
+            .menu{
+                position: relative;
+                right: 575px;
+                display: inline-block;
+            }
+            .menu_content{
+                display: none;
+                position: absolute;
+                min-width: 160px;
+                background-color: white;
+                border: 1px solid #ccc;
+                left: 0;
+            }
+            .menu:hover .menu_content{
+                display: block;
+            }
+            .menu_content a{
+                color: black;
+                text-decoration: none;
+                display: block;
+                padding: 8px 16px;
+            }
+            .menu:hover{
+                display: block;
+            }
+            .menu_content a:hover{
+                background-color: #777;
+            }
+            .menu_btn{
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: large;
+                cursor: pointer;
+            }
+            .menu_btn:hover{
+                transition: all 0.2s;
+            }
+            .product{
+                display: flex;
+                margin: 20px;
+            }
+            .product_image{
+                flex: 1;
+                margin-right: 20px;
+            }
+            .product_image img{
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+            .product_desc{
+                flex: 2;
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 8px;
+            }
+            h2{
+                font-size: 40px;
+            }
+            .prod_desc{
+                font-size: 25px;
+            }
+            .addtocart{
+                background-color: green;
+                font-size: 25px;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            let cartCount = 0;
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+            function addToCart(product){
+                let found=false;
+                cartItems.forEach(item => {
+                    if (item.name === product.name) {
+                        item.quantity++;
+                        found = true;
+                    }
+                });
+                if (!found) {
+                    product.quantity = 1;
+                    cartItems.push(product);
+                }
+                localStorage.setItem('cartItems', JSON.stringify(cartItems));
+                updateCartCount();
+            }
+
+            function updateCartCount(){
+                const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+                document.getElementById('cart-count').textContent = cartCount;
+            }
+
+            window.onload = updateCartCount;
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-container">
+                <a href="iPlant.html" class="logo"><img src="h_images\logo.png"></href></a>
+            </div>
+            <div class="menu">
+                <button class="menu_btn">Menu</button>
+                <div class="menu_content">
+                    <a href="booking.html"><p>Customer Service</p></a>
+                    <a href="tools.html"><p>Tools</p></a>
+                </div>
+            </div>
+            <div class="cart-button">
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+                <span id="cart-count">0</span>
+            </div>
+            <div class="user-details">
+                <ul>
+                    <li>
+                        <a href="#" class="user"><img src="h_images\user-profile.jpg"></a>
+                        <a href="#" class="user1"><span>User123</span></a>
+                        <ul>
+                            <li><a href="#">Profile</a></li>
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header><br>
+
+        <div class="product">
+            <div class="product_image">
+                <img src="h_images/plant5.jpeg" alt="Product Image">
+            </div>
+            <div class="product_desc">
+                <h2>Fiddle Leaf</h2>
+                <p class="prod_desc">The Fiddle Leaf Fig features impressive, broad, and glossy leaves that are deeply lobed, resembling the shape of a fiddle or violin. These leaves can grow up to a foot or more in length, creating a bold and dramatic appearance. The plant has a tree-like growth habit with a single, thick stem, and it can reach significant heights under the right conditions. Fiddle Leaf Figs thrive in bright, indirect light, and they should be shielded from harsh, direct sunlight. Adequate watering is crucial – the soil should be kept consistently moist but not waterlogged, allowing the top few inches to dry out between waterings.</p>
+                <p class="prod_desc">₹700</p>
+                <a href="#"> <button type="button" class="addtocart" onclick="addToCart({name: 'Fiddle Leaf', price: 700, image: 'h_images/plant.jpeg'})">Add to cart</button></a>
+            </div>
+        </div>
+    </body>
+</html>

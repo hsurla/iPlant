@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { dirname } from "path";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import mongoose from "mongoose";
 
@@ -33,11 +33,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public')); // Serve static files from the 'public' directory
 
 app.get("/", (req, res) => {
-    res.sendFile(__dirname + "/public/signup.html");
+    res.sendFile(join(__dirname, "public", "signup.html"));
+});
+
+app.get("/login", (req, res) => {
+    res.sendFile(join(__dirname, "public", "login.html"));
 });
 
 app.post("/submit", async (req, res) => {
-    // Create a new user instance
+    console.log("Received signup form submission:");
+    console.log(req.body);  // Log the request body to see the submitted data
+
     const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
@@ -49,17 +55,50 @@ app.post("/submit", async (req, res) => {
     });
 
     try {
-        // Save the user data to the database
         await newUser.save();
         console.log("Data saved successfully.");
-        // Redirect to iPlant.html upon successful form submission
-        res.redirect("/iPlant.html");
+        res.redirect("/login");
     } catch (error) {
         console.error(error);
         res.send("Error occurred while saving the data.");
     }
 });
 
+app.post("/login", async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const user = await User.findOne({ email, password });
+
+        if (user) {
+            // Serve iPlant.html from the 'public' directory
+            res.sendFile(join(__dirname, "public", "iPlant.html"));
+        } else {
+            res.send("Invalid email or password.");
+        }
+    } catch (error) {
+        console.error(error);
+        res.send("Error occurred while logging in.");
+    }
+});
+
+// New route to handle payment data submission
+app.post("/submit-payment", async (req, res) => {
+    const paymentData = req.body;
+
+    try {
+        // Save payment data to the database
+        // Example: Assuming you have a Payment model
+        // const newPayment = new Payment(paymentData);
+        // await newPayment.save();
+
+        res.send("Payment data received and saved successfully.");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error occurred while saving payment data.");
+    }
+});
+
 app.listen(port, () => {
-    console.log(`running on port ${port}.`);
+    console.log(`Running on port ${port}.`);
 });

@@ -1,0 +1,119 @@
+body {margin:0;
+     background-image:url("s_images/booking_background.jpg");
+      
+}
+
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 40;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height : 2%
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+
+.logo{
+position:relative;
+top:-30px;
+height:70px;
+width:70px;
+}
+
+.p1{
+position:absolute;
+top:150px;
+left:60px;
+font-size:30px;
+}
+
+.form{
+height:100px;
+width:100px;
+}
+
+.container {
+    position: absolute;
+    top: 300px; /* Adjust as needed */
+    left: 80px; /* Adjust as needed */
+    padding: 20px; /* Optional padding */
+    background-color: #f5f5f5;
+}
+
+.time{
+ font-size:20px;
+}
+
+.img{
+ position:absolute;
+ left:770px;
+top:180px;
+height:400px;
+width:400px;
+}
+
+.dialog-box{
+  position: fixed;
+  top:50%;
+  left:40%;
+  display: none;
+  border-radius: 8px;
+  border: 2px solid;
+  background-color:bisque;
+  max-width: 400px;
+  
+}
+
+.dialog-content{
+  text-align: center;
+}
+
+.dialog-content h2{
+  margin-top: 0;
+}
+
+.dialog-content button{
+  padding: 8px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999; 
+  display: none;
+}
+
+.data {
+  max-width: 300px; 
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+}

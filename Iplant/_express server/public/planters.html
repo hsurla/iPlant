@@ -1,0 +1,119 @@
+<html>
+<head>
+ <link rel="stylesheet" href="pstyles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+ <script>
+ function goto(url) {
+      window.location.href = url;
+    }
+  
+    function updateCartCount(count) {
+    var cartCountElement = document.getElementById("cart_count");
+    cartCountElement.textContent = count;
+}
+
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+    // Retrieve cart items from localStorage
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Update cart count in the UI
+    updateCartCount(storedCartItems.length);
+});
+
+function cartcount(name, price, image) {
+    var cartItem = {
+        name: name,
+        price: price,
+        image: image,
+        quantity: 1 // Assuming initial quantity is 1
+    };
+
+    console.log("Adding item to cart:", cartItem);
+
+    // Get existing cart items from localStorage
+    var existingItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Check if the item is already in the cart
+    var existingItemIndex = existingItems.findIndex(item => item.name === cartItem.name);
+
+    if (existingItemIndex !== -1) {
+        // If the item exists, increment its quantity
+        existingItems[existingItemIndex].quantity++;
+    } else {
+        // If the item doesn't exist, add it to the cart
+        existingItems.push(cartItem);
+    }
+
+    console.log("Updated cart items:", existingItems);
+
+    // Save the updated cart items to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(existingItems));
+
+    // Retrieve cart items from localStorage again
+    const updatedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+    // Calculate total quantity of items in the cart
+    const totalQuantity = updatedCartItems.reduce((total, item) => total + item.quantity, 0);
+
+    console.log("Total quantity in cart:", totalQuantity);
+
+    // Update cart count in the UI
+    updateCartCount(totalQuantity);
+}
+ </script>
+</head>
+
+<body class="nav">
+<div class="topnav">
+  <img class="active" onclick="goto('iplant.html')" src="s_images\iplant.jpg" alt="iplant" width="50" height="50">
+  <a href="#home">Home</a>
+  <a href="#planters" onclick="goto('planters.html')">Planters</a>
+  <a href="#tools"  onclick="goto('tools.html')">Tools</a>
+  <a href="#fertilizers" onclick="goto('fertilizers.html')">Fertilizers</a>
+  <input class="abc" type="text" placeholder="Search..">
+  <i onclick="goto('cart.html')" class="fa-solid fa-2x fa-cart-shopping shopping-cart-icon" ></i>
+  <span id="cart_count" class="number">0</span>
+ 
+</div>
+<a class="gal" href="#">
+<img class="humic" src="Planters\cylindrical.webp" alt="Humic acid powder" width="200" height="200">
+<div class="p1"><pre>Cylindrical Planter ₹79.00</pre></div>
+<button class="but1" onclick="cartcount('Cylindrical Planter', 79, 'Planters/cylindrical.webp')">BUY NOW</button>
+
+<img class="humi" src="Planters\Date palm.webp" alt="Humi TAB" width="200" height="200">
+<div class="p2"><pre>Date Palm Planter ₹79.00</pre></div>
+<button class="but2" onclick="cartcount('Date Palm Planter', 79, 'Planters/Date Palm.webp')">BUY NOW</button>
+
+<img class="protec" src="Planters\elegance.webp" alt="protec" width="200" height="200">
+<div class="p3"><pre>Elegance Planter ₹79.00</pre></div>
+<button class="but3" onclick="cartcount('Elegance Planter', 79, 'Planters/elegance.webp')">BUY NOW</button>
+
+<img class="tonic" src="Planters\goblet.webp" alt="Tonic Spray" width="200" height="200">
+<div class="p4"><pre>Goblet Planter ₹79.00</pre></div>
+<button class="but4" onclick="cartcount('Goblet Planter', 79, 'Planters/goblet.webp')">BUY NOW</button>
+
+<img class="organic" src="Planters\hague.webp" alt="organic manure" width="200" height="200">
+<div class="p5"><pre>Hague Planter ₹79.00</pre></div>
+<button class="but5" onclick="cartcount('Hague Planter', 79, 'Planters/hague.webp')">BUY NOW</button>
+
+<img class="flora" src="Planters\oslo.webp" alt="Flora TAB" width="200" height="200">
+<div class="p6"><pre>Oslo Planter ₹79.00</pre></div>
+<button class="but6" onclick="cartcount('Oslo Planter', 79, 'Planters/oslo.webp')">BUY NOW</button>
+
+<img class="cow" src="Planters\prism.webp" alt="cow manure" width="200" height="200">
+<div class="p7"><pre>Faceted Prism Pot ₹79.00</pre></div>
+<button class="but7" onclick="cartcount('Faceted Prism Pot', 79, 'Planters/prism.webp')">BUY NOW</button>
+
+<img class="rooting" src="Planters\vase ball.webp" alt="rooting hormone powder" width="200" height="200">
+<div class="p8"><pre>Heraldry Vase Ball ₹79.00</pre></div>
+<button class="but8" onclick="cartcount('Heraldry Vase Ball', 79, 'Planters/vase ball.webp')">BUY NOW</button>
+
+<img class="grow" src="Planters\vase taper.webp" alt="Grow TAB" width="200" height="200">
+<div class="p9"><pre>Heraldry Vase Taper ₹79.00</pre></div>
+<button class="but9" onclick="cartcount('Heraldry Vase Taper', 79, 'Planters/vase taper.webp')">BUY NOW</button>
+</a>
+</body>
+</html>  
