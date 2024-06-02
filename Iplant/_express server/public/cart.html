@@ -1,93 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <style>
-            body{
-                background-image: url("s_images/booking_background.jpg");
-                font-family: Arial, sans-serif;
-            }
-            header a.logo{
-                text-align: left;
-            }
-            header img{
-                max-width: 100px;
-                height: auto;
-                border-radius: 50%;
-            }
-            .header{
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 20px;
-                color: #3D860B;
-            }
-            .logo-container{
-                display: flex;
-                align-items: center;
-               
-            }
-            .logo{
-                display: block;
-                align-items: center;
-              
-            }
-            .user-details{
-                display: flex;
-                align-items: center;
-            }
-            .user-details img{
-                height: 40px;
-                width: 40px;
-                border-radius: 50%;
-                object-fit: cover;
-                margin-right: 10px;
-            }
-            .cart-button{
-                margin-left: 1150px;
-            }
-            a.cart-icon{
-                font-size: 24px;
-                color: #3D860B;
-                text-decoration: none;
-                margin-right: 10px;
-            }
-            a.cart-icon:hover{
-                color: #f0f0f0;
-            }
-            ul{
-                list-style-type: none;
-                padding: 0;
-                margin: 0;
-            }
-            ul li {
-                display: inline-block;
-                position: relative;
-            }
-            ul li:hover ul {
-                display: block;
-            }
-            ul li ul {
-                position: absolute;
-                width: 100px;
-                display: none;
-                background-color: white;
-            }
-            ul li ul li {
-                height: 20px;
-                display: block;
-            }
-            ul li ul li a {
-                display: block !important;
-                color: black;
-                text-decoration: none;
-                padding: 1px;
-            }
-            .user1{
-                text-decoration: none;
-                color: white;
-            }
-            .cart-items {
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background-image: url("s_images/booking_background.jpg");
+            font-family: Arial, sans-serif;
+        }
+        header a.logo {
+            text-align: left;
+        }
+        header img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            color: #3D860B;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            display: block;
+            align-items: center;
+        }
+        .user-details {
+            display: flex;
+            align-items: center;
+        }
+        .user-details img {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .cart-button {
+            margin-left: 1150px;
+        }
+        a.cart-icon {
+            font-size: 24px;
+            color: #3D860B;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        a.cart-icon:hover {
+            color: #f0f0f0;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        ul li {
+            display: inline-block;
+            position: relative;
+        }
+        ul li:hover ul {
+            display: block;
+        }
+        ul li ul {
+            position: absolute;
+            width: 100px;
+            display: none;
+            background-color: white;
+        }
+        ul li ul li {
+            height: 20px;
+            display: block;
+        }
+        ul li ul li a {
+            display: block !important;
+            color: black;
+            text-decoration: none;
+            padding: 1px;
+        }
+        .user1 {
+            text-decoration: none;
+            color: white;
+        }
+        .cart-items {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -117,7 +115,7 @@
             font-size: 16px;
             color: #333;
         }
-        .rmv_item{
+        .rmv_item {
             background: none;
             border: none;
             background-color: green;
@@ -125,17 +123,16 @@
             font-size: 16px;
             margin-top: auto;
         }
-        .total-amount{
+        .total-amount {
             font-size: 20px;
             margin-top: 20px;
             font-weight: bold;
             color: white;
             text-align: center;
         }
-        .check_button{
+        .check_button {
             display: flex;
             justify-content: center;
-            
         }
         .checkout_btn {
             padding: 10px 20px;
@@ -147,32 +144,31 @@
             font-size: 16px;
             text-transform: uppercase;
             margin-top: 20px;
-            
         }
-        </style>
-        <script>
-            const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    </style>
+    <script>
+        const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-            document.addEventListener('DOMContentLoaded', function () {
-                const cartItemsContainer = document.getElementById('cart-items');
-                storedCartItems.forEach((product, index) => {
-                    const productDiv = document.createElement('div');
-                    productDiv.classList.add('cart-item');
-                    productDiv.innerHTML = `
+        document.addEventListener('DOMContentLoaded', function () {
+            const cartItemsContainer = document.getElementById('cart-items');
+            storedCartItems.forEach((product, index) => {
+                const productDiv = document.createElement('div');
+                productDiv.classList.add('cart-item');
+                productDiv.innerHTML = `
                     <img src="${product.image}" alt="${product.name}">
                     <div>
-                    <p>${product.name} - ₹<span class="price">${product.price * product.quantity}</span> <br>
-                        Quantity: <input type="number" value="${product.quantity}" min="1" class="quantity" data-index="${index}" onchange="updateQuantity(this)">
-                        <button onclick="removeItem(${index})" class="rmv_item">Remove</button>
+                        <p>${product.name} - ₹<span class="price">${product.price * product.quantity}</span> <br>
+                            Quantity: <input type="number" value="${product.quantity}" min="1" class="quantity" data-index="${index}" onchange="updateQuantity(this)">
+                            <button onclick="removeItem(${index})" class="rmv_item">Remove</button>
                         </p>
                     </div>
-                    `;
-                    cartItemsContainer.appendChild(productDiv);
-                });
-                updateTotalAmount();
+                `;
+                cartItemsContainer.appendChild(productDiv);
             });
+            updateTotalAmount();
+        });
 
-            function updateQuantity(input) {
+        function updateQuantity(input) {
             const index = input.dataset.index;
             const quantity = parseInt(input.value);
             const price = storedCartItems[index].price;
@@ -187,53 +183,53 @@
             localStorage.setItem('cartItems', JSON.stringify(storedCartItems));
 
             updateTotalAmount();
-            
         }
 
-            function removeItem(index){
-                storedCartItems.splice(index, 1);
-                localStorage.setItem('cartItems' ,JSON.stringify(storedCartItems));
-                location.reload();
-            }
+        function removeItem(index) {
+            storedCartItems.splice(index, 1);
+            localStorage.setItem('cartItems', JSON.stringify(storedCartItems));
+            location.reload();
+        }
 
-            function updateTotalAmount() {
+        function updateTotalAmount() {
             let totalAmount = storedCartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
             document.getElementById('total-amount').textContent = `Total Amount: ₹${totalAmount}`;
         }
-        function payment_portal(){
+
+        function payment_portal() {
             window.location.href = "payment_portal.html";
         }
-        </script>
-    </head>
-    <body>
-        <header class="header">
-            <div class="logo-container">
-                <a href="iPlant.html" class="logo"><img src="h_images\logo.png"></href></a>
-            </div>
-            <div class="cart-button">
-                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-            </div>
-            <div class="user-details">
-                <ul>
-                    <li>
-                        <a href="#" class="user"><img src="h_images\user-profile.jpg"></a>
-                        <a href="#" class="user1" style="color: #3D860B;"><span>User123</span></a>
-                        <ul>
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">Log Out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </header><br>
-        
-        <div class="cart-items" id="cart-items"></div>
-
-        <div class="total-amount" id="total-amount" style="color: #3D860B;"></div>
-
-        <div class="check_button">
-            <button class="checkout_btn" onclick="payment_portal()">Checkout</button>
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <a href="iPlant.html" class="logo"><img src="h_images/logo.png"></a>
         </div>
-    </body>
+        <div class="cart-button">
+            <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+        <div class="user-details">
+            <ul>
+                <li>
+                    <a href="#" class="user"><img src="h_images/user-profile.jpg"></a>
+                    <a href="#" class="user1" style="color: #3D860B;"><span>User123</span></a>
+                    <ul>
+                        <li><a href="profile.html">Profile</a></li>
+                        <li><a href="#">Settings</a></li>
+                        <li><a href="#">Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </header><br>
+    
+    <div class="cart-items" id="cart-items"></div>
+
+    <div class="total-amount" id="total-amount" style="color: #3D860B;"></div>
+
+    <div class="check_button">
+        <button class="checkout_btn" onclick="payment_portal()">Checkout</button>
+    </div>
+</body>
 </html>

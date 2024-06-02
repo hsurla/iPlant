@@ -23,13 +23,24 @@ const userSchema = new mongoose.Schema({
   address: String,
 });
 
-// Create a model based on the schema
+// Define schema for cart items
+const cartItemSchema = new mongoose.Schema({
+  productId: String,
+  name: String,
+  price: Number,
+  quantity: Number,
+  userId: mongoose.Schema.Types.ObjectId,
+});
+
+// Create models based on the schemas
 const User = mongoose.model("User", userSchema);
+const CartItem = mongoose.model("CartItem", cartItemSchema);
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(express.static('public')); // Serve static files from the 'public' directory
 
 app.get("/", (req, res) => {
@@ -58,6 +69,7 @@ app.post("/submit", async (req, res) => {
         await newUser.save();
         console.log("Data saved successfully.");
         res.redirect("/login");
+        
     } catch (error) {
         console.error(error);
         res.send("Error occurred while saving the data.");
@@ -72,7 +84,7 @@ app.post("/login", async (req, res) => {
 
         if (user) {
             // Serve iPlant.html from the 'public' directory
-            res.sendFile(join(__dirname, "public", "iPlant.html"));
+            res.redirect(`/iPlant.html?firstName=${user.firstName}`);
         } else {
             res.send("Invalid email or password.");
         }
@@ -84,7 +96,7 @@ app.post("/login", async (req, res) => {
 
 // New route to handle payment data submission
 app.post("/submit-payment", async (req, res) => {
-    const paymentData = req.body;
+    const { cartItems, paymentData } = req.body;
 
     try {
         // Save payment data to the database
@@ -92,12 +104,42 @@ app.post("/submit-payment", async (req, res) => {
         // const newPayment = new Payment(paymentData);
         // await newPayment.save();
 
-        res.send("Payment data received and saved successfully.");
+        // Save cart items to the database
+        for (const item of cartItems) {
+            const newCartItem = new CartItem({
+                productId: item.productId,
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                // Add userId or other relevant properties if needed
+            });
+            await newCartItem.save();
+        }
+
+        res.sendFile(join(__dirname, "public", "order_confirmation.html"));
     } catch (error) {
         console.error(error);
         res.status(500).send("Error occurred while saving payment data.");
     }
 });
+
+app.post("/book", async (req, res) => {
+    const { date, time, nursery, service } = req.body;
+
+    try {
+        // Save booking data to the database
+        // Example: Assuming you have a Booking model
+        // const newBooking = new Booking({ date, time, nursery, service });
+        // await newBooking.save();
+
+        // For now, let's just send a confirmation response
+        res.send("Booking Successful");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Error occurred while booking.");
+    }
+});
+
 
 app.listen(port, () => {
     console.log(`Running on port ${port}.`);

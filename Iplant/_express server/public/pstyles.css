@@ -6,6 +6,7 @@
 .topnav {
   overflow: hidden;
   background-color:#3D860B  ;
+  
 }
 
 .topnav a{
@@ -28,15 +29,15 @@
 
 .shopping-cart-icon {
   color: #f2f2f2;
-  margin-left: 120px;
+  margin-left: 1165px;
   position: relative;
-  top: -16px;
+  top:-40px;
   cursor: pointer;
 }
 
 .number{
   position: relative;
-  top: -10px;
+  top: -40px;
   color:white;
 }
 
