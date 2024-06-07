@@ -1,0 +1,119 @@
+<html>
+<head>
+ <link rel="stylesheet" href="fruits_styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<script>
+  function goto(url) {
+       window.location.href = url;
+     }
+   
+     function updateCartCount(count) {
+     var cartCountElement = document.getElementById("cart_count");
+     cartCountElement.textContent = count;
+ }
+ 
+ 
+ 
+     document.addEventListener('DOMContentLoaded', function () {
+     // Retrieve cart items from localStorage
+     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Update cart count in the UI
+     updateCartCount(storedCartItems.length);
+ });
+ 
+ function cartcount(name, price, image) {
+     var cartItem = {
+         name: name,
+         price: price,
+         image: image,
+         quantity: 1 // Assuming initial quantity is 1
+     };
+ 
+     console.log("Adding item to cart:", cartItem);
+ 
+     // Get existing cart items from localStorage
+     var existingItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Check if the item is already in the cart
+     var existingItemIndex = existingItems.findIndex(item => item.name === cartItem.name);
+ 
+     if (existingItemIndex !== -1) {
+         // If the item exists, increment its quantity
+         existingItems[existingItemIndex].quantity++;
+     } else {
+         // If the item doesn't exist, add it to the cart
+         existingItems.push(cartItem);
+     }
+ 
+     console.log("Updated cart items:", existingItems);
+ 
+     // Save the updated cart items to localStorage
+     localStorage.setItem('cartItems', JSON.stringify(existingItems));
+ 
+     // Retrieve cart items from localStorage again
+     const updatedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Calculate total quantity of items in the cart
+     const totalQuantity = updatedCartItems.reduce((total, item) => total + item.quantity, 0);
+ 
+     console.log("Total quantity in cart:", totalQuantity);
+ 
+     // Update cart count in the UI
+     updateCartCount(totalQuantity);
+ }
+  </script>
+
+</head>
+<body class="nav">
+<div class="topnav">
+  <img class="active" onclick="goto('iplant.html')" src="s_images\iplant.jpg" alt="iplant" width="50" height="50">
+  <a href="#home">Home</a>
+  <a href="#fruits" onclick="goto('fruits.html')">Fruits</a>
+  <a href="#vegetables" onclick="goto('vegetables.html')">Vegetables</a>
+  <a href="#flowers" onclick="goto('flowers.html')">Flowers</a>
+  <input class="abc" type="text" placeholder="Search..">
+  <i onclick="goto('cart.html')" class="fa-solid fa-2x fa-cart-shopping shopping-cart-icon" ></i>
+  <span id="cart_count" class="number">0</span>
+ 
+</div>
+<a class="gal" href="#">
+<img class="apple" src="fruits_images/apple.jpeg" alt="apple" width="200" height="200">
+<div class="p1"><pre>Apple ₹79.00</pre></div>
+<button class="but1" onclick="cartcount('Apple', 79, 'fruits_images/apple.jpeg')">BUY NOW</button>
+
+<img class="mango" src="fruits_images/Mango.jpeg" alt="mango" width="200" height="200">
+<div class="p2"><pre>Mango ₹79.00</pre></div>
+<button class="but2" onclick="cartcount('Mango', 79, 'fruits_images/Mango.jpeg')">BUY NOW</button>
+
+<img class="strawberry" src="fruits_images/strawberry.jpeg" alt="strawberry" width="200" height="200">
+<div class="p3"><pre>Strawberry ₹79.00</pre></div>
+<button class="but3"  onclick="cartcount('Strawberry', 79, 'fruits_images/strawberry.jpeg')">BUY NOW</button>
+
+<img class="dragon" src="fruits_images/Dragonfruit.jpeg" alt="dragon_fruit" width="200" height="200">
+<div class="p4"><pre>Dragon Fruit ₹79.00</pre></div>
+<button class="but4"  onclick="cartcount('Dragon Fruit', 79, 'fruits_images/Dragonfruit.jpeg')">BUY NOW</button>
+
+<img class="cherry" src="fruits_images/cherry.jpeg" alt="cherry" width="200" height="200">
+<div class="p5"><pre>Cherry ₹79.00</pre></div>
+<button class="but5"  onclick="cartcount('Cherry', 79, 'fruits_images/cherry.jpeg')">BUY NOW</button>
+
+<img class="raspberry" src="fruits_images/raspberry.jpeg" alt="raspberry" width="200" height="200">
+<div class="p6"><pre>Raspberry ₹79.00</pre></div>
+<button class="but6"  onclick="cartcount('Raspberry', 79, 'fruits_images/raspberry.jpeg')">BUY NOW</button>
+
+<img class="orange" src="fruits_images/orange.jpeg" alt="orange" width="200" height="200">
+<div class="p7"><pre>Orange ₹79.00</pre></div>
+<button class="but7"  onclick="cartcount('Orange', 79, 'fruits_images/orange.jpeg')">BUY NOW</button>
+
+<img class="kiwi" src="fruits_images/kiwi.jpeg" alt="kiwi" width="200" height="200">
+<div class="p8"><pre>Kiwi ₹79.00</pre></div>
+<button class="but8"  onclick="cartcount('Kiwi', 79, 'fruits_images/kiwi.jpeg')">BUY NOW</button>
+
+<img class="blueberry" src="fruits_images/blueberry.jpeg" alt="blueberry" width="200" height="200">
+<div class="p9"><pre>Blueberry ₹79.00</pre></div>
+<button class="but9"  onclick="cartcount('Blueberry', 79, 'fruits_images/blueberry.jpeg')">BUY NOW</button>
+</a>
+</body>
+</html>  

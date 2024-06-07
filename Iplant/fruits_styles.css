@@ -1,0 +1,341 @@
+img {
+    position: relative; /* Enable relative positioning */
+    top: -50px; /* Move up by 50 pixels */
+    right: -50px; /* Move right by 20 pixels */
+    border: 10px solid  #e0e0eb
+  
+  }
+  
+  .w2{
+     background-image:url("s_images/booking_background.jpg");
+  }
+    
+  
+  p {
+    font-size:25px;
+    color: black;
+    text-align: right;
+    padding-top: 50px;
+    padding-right: 150px;
+  }
+  
+  
+  .btn {
+    background-color: beige;
+    width: 150px;
+    height: 100px;
+    padding: 20px; 
+    margin-top: 20px; 
+    margin-right: 320px;  
+    text-align: center;
+    display: block; 
+  }
+  
+  .btn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  
+  .sapling {
+    margin-top: 10px; 
+  }
+  .Flowering {
+    margin-top: 10px;
+  }
+  
+  .fruiting{
+   margin-top: 10px; 
+  }
+  
+  
+  .button-container {
+   float:right
+  }
+  
+  .w4{
+   background-image: url("img6.jpg");
+   background-size: 1300px 
+  }
+  
+  .search{
+  
+   text-align: center;
+   margin-top: 100px;
+   
+  }
+  
+  .planters{
+    margin-top: 50px;
+    margin-left: 50px;
+  }
+  
+  .tools{
+   margin-left: 275px;
+  }
+  
+  .fertilizers{
+    margin-left: 250px;
+  }
+  
+  .text1{
+   font-size:25px;
+   margin-left: 80px;
+  }
+  
+  .text2{
+    font-size:25px;
+   margin-left: 350px;
+   margin-bottom: 70px;
+  }
+  
+  .text3{
+    position:relative;
+    font-size:25px;
+    margin-left: 1000px;
+    top:-100px;
+  }
+  
+  .nav {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color:#3D860B
+  }
+  
+  .topnav a{
+    position:relative;
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    margin-left: 80px;
+    top:-27px;
+    padding: 14px 2px;
+  }
+  
+  .topnav a:hover{
+    background-color: gray;
+  }
+
+  .active{
+    cursor: pointer;
+  }
+
+  .shopping-cart-icon {
+    color: #f2f2f2;
+    margin-left: 120px;
+    position: relative;
+    top: -16px;
+    cursor: pointer;
+  }
+  
+  .number{
+    position: relative;
+    top: -10px;
+    color:white;
+  }
+  
+  .abc{
+   position:relative;
+    margin-left:120px;
+    top: -25px;
+  padding:10px 15px;
+  }
+  
+  img.active {
+    position: relative; 
+    top: 0px; 
+    right: -50px;
+    border: 10px solid #e0e0eb;
+  }
+  
+  .apple{
+    margin-top: 70px;
+  }
+  
+  .p1{
+   position: relative;
+  font-size: 20px;
+   margin-left: 327px;
+   top: -50px;
+  
+  }
+  
+  
+  .gal{
+   position:relative;
+   text-decoration:None;
+  color: black;
+  margin-left: 235px;
+  }
+  
+  .but1{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 308px;
+    top: -250px;
+  }
+  
+  .mango{
+   position:relative;
+   top: 50px;
+   right: 190px;
+  }
+  
+  .p2{
+   position: relative;
+  font-size: 20px;
+   margin-left: 340px;
+   top: 25px;
+  }
+  
+  .but2{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 320px;
+    top: -170px;
+  }
+  
+  .strawberry{
+   position:relative;
+   top:-635px;
+   margin-left: 120px;
+  }
+  
+  .p3{
+   position: relative;
+  font-size: 20px;
+   margin-left: 675px;
+   top: -660px;
+  }
+  
+  .but3{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 690px;
+    top: -860px;
+  }
+  
+  .dragon{
+   position:relative;
+   top:-945px;
+   margin-left: 85px;
+  }
+  
+  .p4{
+   position: relative;
+  font-size: 20px;
+   margin-left: 1000px;
+   top: -963px;
+  }
+  
+  .but4{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 1020px;
+    top: -970px;
+  }
+  
+  .cherry{
+   position:relative;
+   top:-910px;
+   margin-left: 615px;
+  }
+  
+  .but5{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 690px;
+    top: -1105px;
+  }
+  
+  .p5{
+   position: relative;
+  font-size: 20px;
+   margin-left: 700px;
+   top: -910px;
+  }
+  
+  .raspberry{
+   position:relative;
+   top:-1190px;
+   margin-left: 85px;
+  }
+  
+  .p6{
+   position: relative;
+  font-size: 20px;
+   margin-left: 1020px;
+   top: -1213px;
+  }
+  
+  .but6{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 1020px;
+    top: -1215px;
+  }
+  
+  .orange{
+   position:relative;
+   top: -1170px;
+   margin-left: 250px;
+  }
+  
+  .p7{
+   position: relative;
+  font-size: 20px;
+   margin-left: 330px;
+   top: -1180px;
+  }
+  
+  .but7{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 320px;
+    top: -1375px;
+  }
+  
+  .kiwi{
+   position:relative;
+   top:-1450px;
+   margin-left: 125px;
+  }
+  
+  .but8{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 690px;
+    top: -1675px;
+  }
+  
+  .p8{
+   position: relative;
+  font-size: 20px;
+   margin-left: 712px;
+   top: -1485px;
+  }
+  
+  .blueberry{
+   position:relative;
+   top:-1760px;
+   margin-left: 85px;
+  }
+  
+  .p9{
+   position: relative;
+  font-size: 20px;
+   margin-left: 1015px;
+   top: -1788px;
+  }
+  
+  .but9{
+    position: relative;
+    padding: 15px 50px;
+    margin-left: 1020px;
+    top: -1788px;
+  }
+  
+  

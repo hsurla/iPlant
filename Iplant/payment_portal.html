@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+            background-image: url("s_images/booking_background.jpg");
+            font-family: Arial, sans-serif;
+            color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            z-index: 1;
+        }
+        header a.logo{
+                text-align: left;
+            }
+            header img{
+                max-width: 100px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            width: 100%;
+        }
+            .logo-container{
+                display: flex;
+                align-items: center;
+            }
+            .logo{
+                display: block;
+                align-items: center;
+            }
+            .payment-info {
+            margin-top: 100px;
+            text-align: center;
+            
+        }
+        .payment-info h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        .payment-info p {
+            font-size: 18px;
+            color: #000;
+        }
+        .payment-methods {
+            margin-top: 50px;
+            text-align: center;
+        }
+        .payment-methods h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        .payment-methods ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .payment-methods li {
+            margin-bottom: 10px;
+            margin-right: 20px;
+            border: 1px solid #000;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;            
+        }
+
+        .payment-methods li p {
+            margin: 0;
+            font-size: 16px;
+            color: black;
+        }
+
+        .card-details-form{
+            display: none;
+            margin-top: 20px;
+        }
+
+        .card-details-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .card-details-form input{
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .card-details-form button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .order-placed-message {
+            display: none;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            color: black;
+        }
+
+        .order-placed-message h2,
+        .order-placed-message p {
+            margin: 0;
+            color: white;
+        }
+            
+        </style>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+            const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            let totalAmount = 0;
+
+            storedCartItems.forEach(item => {
+                totalAmount += item.price * item.quantity;
+            });
+
+            document.getElementById('totalAmount').textContent = totalAmount;
+
+            const upiOption = document.getElementById('upiOption');
+            const upiDetailsForm = document.getElementById('upiDetailsForm');
+
+            upiOption.addEventListener('click', function () {
+                if (upiDetailsForm.style.display === 'block') {
+                    upiDetailsForm.style.display = 'none'; // Hide UPI details form if already visible
+                } else {
+                    upiDetailsForm.style.display = 'block'; // Show UPI details form
+                }
+            });
+
+            const cardOption = document.getElementById('cardOption');
+            const cardDetailsForm = document.getElementById('cardDetailsForm');
+
+            cardOption.addEventListener('click', function () {
+                if (cardDetailsForm.style.display === 'block') {
+                    cardDetailsForm.style.display = 'none'; // Hide card details form if already visible
+                } else {
+                    cardDetailsForm.style.display = 'block'; // Show card details form
+                }
+            });
+
+            const codOption = document.getElementById('codOption');
+            const codConfirmation = document.getElementById('cashOnDeliveryConfirmation');
+
+            codOption.addEventListener('click', function () {
+                if (codConfirmation.style.display === 'block') {
+                    codConfirmation.style.display = 'none'; // Hide cash on delivery confirmation if already visible
+                } else {
+                    codConfirmation.style.display = 'block'; // Show cash on delivery confirmation
+                }
+            });
+        });
+
+        function updateConfirmAmount() {
+            const totalAmount = parseFloat(document.getElementById('totalAmount').textContent);
+            document.getElementById('confirmAmount').textContent = totalAmount.toFixed(2);
+        }
+        function submitCardDetails() {
+            // Display the order placed message
+            document.getElementById('orderPlacedMessage').style.display = 'block';
+            return false;
+        }
+        function toggleCashOnDeliveryConfirmation() {
+            const confirmationDiv = document.getElementById('cashOnDeliveryConfirmation');
+            confirmationDiv.style.display = (confirmationDiv.style.display === 'none' || confirmationDiv.style.display === '') ? 'block' : 'none';
+        }
+
+        function confirmCashOnDelivery() {
+            alert('Your order has been confirmed. You will pay the amount upon delivery.');
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateConfirmAmount();
+        });
+
+        
+        </script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-container">
+                <a href="iPlant.html" class="logo"><img src="h_images\logo.png"></href></a>
+            </div>
+        </header>
+
+        <div class="payment-info">
+            <h1>Amount to be Paid</h1>
+            <p>Total Amount: ₹<span id="totalAmount"></span></p>
+        </div>
+
+        <div class="payment-methods">
+            <h2>Payment Methods</h2>
+            <ul>
+                <li id="cardOption">
+                    <p>Credit/Debit Card</p>
+                </li>
+                <li id="codOption" onclick="toggleCashOnDeliveryConfirmation()">
+                    <p>Cash on Delivery</p>
+                </li>
+                <li id="upiOption">
+                    <p>UPI</p>
+                </li>
+            </ul>
+        </div>
+
+        <div id="cardDetailsForm" class="card-details-form">
+            <h2>Enter Card Details</h2>
+            <form id="cardDetailsForm">
+                <input type="text" placeholder="Card Number">
+                <input type="text" placeholder="Expiration Date">
+                <input type="text" placeholder="CVV">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="upiDetailsForm" class="card-details-form">
+            <h2>Enter UPI ID</h2>
+            <form onsubmit="return submitUpiDetails()">
+                <input type="text" placeholder="Enter UPI ID">
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div id="cashOnDeliveryConfirmation" class="cash-on-delivery-confirmation">
+            <h2>Confirm Amount</h2>
+            <p>Please confirm that you will pay ₹<span id="confirmAmount"></span> upon delivery.</p>
+            <button onclick="confirmCashOnDelivery()">Confirm</button>
+        </div>
+        
+        <div id="orderPlacedMessage" class="order-placed-message">
+            <h2>Order Placed</h2>
+            <p>Your order has been successfully placed.</p>
+        </div>
+    </body>
+</html>

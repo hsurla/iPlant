@@ -1,0 +1,117 @@
+<html>
+<head>
+ <link rel="stylesheet" href="fstyles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<script>
+  function goto(url) {
+       window.location.href = url;
+     }
+   
+     function updateCartCount(count) {
+     var cartCountElement = document.getElementById("cart_count");
+     cartCountElement.textContent = count;
+ }
+ 
+ 
+ 
+     document.addEventListener('DOMContentLoaded', function () {
+     // Retrieve cart items from localStorage
+     const storedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Update cart count in the UI
+     updateCartCount(storedCartItems.length);
+ });
+ 
+ function cartcount(name, price, image) {
+     var cartItem = {
+         name: name,
+         price: price,
+         image: image,
+         quantity: 1 // Assuming initial quantity is 1
+     };
+ 
+     console.log("Adding item to cart:", cartItem);
+ 
+     // Get existing cart items from localStorage
+     var existingItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Check if the item is already in the cart
+     var existingItemIndex = existingItems.findIndex(item => item.name === cartItem.name);
+ 
+     if (existingItemIndex !== -1) {
+         // If the item exists, increment its quantity
+         existingItems[existingItemIndex].quantity++;
+     } else {
+         // If the item doesn't exist, add it to the cart
+         existingItems.push(cartItem);
+     }
+ 
+     console.log("Updated cart items:", existingItems);
+ 
+     // Save the updated cart items to localStorage
+     localStorage.setItem('cartItems', JSON.stringify(existingItems));
+ 
+     // Retrieve cart items from localStorage again
+     const updatedCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+ 
+     // Calculate total quantity of items in the cart
+     const totalQuantity = updatedCartItems.reduce((total, item) => total + item.quantity, 0);
+ 
+     console.log("Total quantity in cart:", totalQuantity);
+ 
+     // Update cart count in the UI
+     updateCartCount(totalQuantity);
+ }
+  </script>
+</head>
+<body class="nav">
+<div class="topnav">
+  <img class="active" onclick="goto('iplant.html')" src="s_images/iplant.jpg" alt="iplant" width="50" height="50">
+  <a href="#home">Home</a>
+  <a href="#planters" onclick="goto('planters.html')">Planters</a>
+  <a href="#tools" onclick="goto('tools.html')">Tools</a>
+  <a href="#fertilizers" onclick="goto('fertilizers.html')">Fertilizers</a>
+  <input class="abc" type="text" placeholder="Search..">
+  <i onclick="goto('cart.html')" class="fa-solid fa-2x fa-cart-shopping shopping-cart-icon" ></i>
+  <span id="cart_count" class="number">0</span>
+ 
+</div>
+<a class="gal" href="#">
+<img class="humic" src="Fertilizers/humic_acid.webp" alt="Humic acid powder" width="200" height="200">
+<div class="p1"><pre>Humic acid powder ₹79.00</pre></div>
+<button class="but1" onclick="cartcount('Humic acid powder', 79, 'Fertilizers/humic_acid.webp')">BUY NOW</button>
+
+<img class="humi" src="Fertilizers/humi-tab.webp" alt="Humi TAB" width="200" height="200">
+<div class="p2"><pre>Humi TAB ₹79.00</pre></div>
+<button class="but2" onclick="cartcount('Humi TAB', 79, 'Fertilizers/humi-tab.webp')">BUY NOW</button>
+
+<img class="protec" src="Fertilizers/protec.webp" alt="protec" width="200" height="200">
+<div class="p3"><pre>Protec Tab ₹79.00</pre></div>
+<button class="but3" onclick="cartcount('Protec Tab', 79, 'Fertilizers/protec.webp')">BUY NOW</button>
+
+<img class="tonic" src="Fertilizers/tonic.webp" alt="Tonic Spray" width="200" height="200">
+<div class="p4"><pre>Plant Tonic Spray ₹79.00</pre></div>
+<button class="but4"  onclick="cartcount('Plant Tonic Spray', 79, 'Fertilizers/tonic.webp')">BUY NOW</button>
+
+<img class="organic" src="Fertilizers/organic_manure.webp" alt="organic manure" width="200" height="200">
+<div class="p5"><pre>Organic Manure ₹79.00</pre></div>
+<button class="but5"  onclick="cartcount('Organic Manure', 79, 'Fertilizers/organic_manure.webp')">BUY NOW</button>
+
+<img class="flora" src="Fertilizers/flora-tab.webp" alt="Flora TAB" width="200" height="200">
+<div class="p6"><pre>Flora TAB ₹79.00</pre></div>
+<button class="but6"  onclick="cartcount('Flora TAB', 79, 'Fertilizers/flora-tab.webp')">BUY NOW</button>
+
+<img class="cow" src="Fertilizers/cow-manure.webp" alt="cow manure" width="200" height="200">
+<div class="p7"><pre>Cow Manure ₹79.00</pre></div>
+<button class="but7"  onclick="cartcount('Cow Manure', 79, 'Fertilizers/cow-manure.webp')">BUY NOW</button>
+
+<img class="rooting" src="Fertilizers/Root_shoot.webp" alt="rooting hormone powder" width="200" height="200">
+<div class="p8"><pre>Rooting Hormone Powder ₹79.00</pre></div>
+<button class="but8"  onclick="cartcount('Rooting Hormone Powder', 79, 'Fertilizers/Root_shoot.webp')">BUY NOW</button>
+
+<img class="grow" src="Fertilizers/grow-tab.webp" alt="Grow TAB" width="200" height="200">
+<div class="p9"><pre>Grow TAB ₹79.00</pre></div>
+<button class="but9"  onclick="cartcount('Grow TAB', 79, 'Fertilizers/grow-tab.webp')">BUY NOW</button>
+</a>
+</body>
+</html>  

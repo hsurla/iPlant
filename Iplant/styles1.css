@@ -1,0 +1,80 @@
+body{
+ background-size: 1300px ;
+}
+
+.search{
+
+ text-align: center;
+ margin-top: 100px;
+ border-radius:50px;
+ 
+}
+
+.search input[type="text"] {
+  padding: 10px;
+  width: 500px;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: #f8f8f8;
+  outline: none; 
+}
+
+.planters{
+  margin-top: 50px;
+  margin-left: 50px;
+  border: 3px solid ;
+  border-color: green;
+}
+
+.tools{
+ margin-left: 275px;
+ border: 3px solid ;
+  border-color: green;
+}
+
+.fertilizers{
+  margin-left: 250px;
+ border: 3px solid ;
+  border-color: green;
+}
+
+.text1{
+ font-size:25px;
+ margin-left: 80px;
+ border-radius:5px;
+ border : none;
+ font-family: "Times New Roman";
+ cursor:pointer;
+ transition: background-color 0.3s;
+ color:green; 
+}
+
+.text1:hover {
+  background-color: #dddddd; 
+}
+
+.text2{
+  font-size:25px;
+ margin-left: 370px;
+ margin-bottom: 70px;
+ border : none;
+  border-radius:5px;
+ font-family: "Times New Roman";
+ cursor:pointer;
+ transition: background-color 0.3s;
+ color:green; 
+}
+
+.text3{
+  position:relative;
+  font-size:25px;
+  margin-left: 1020px;
+  top:-100px;
+  border : none;
+  border-radius:5px;
+ font-family: "Times New Roman";
+ cursor:pointer;
+ transition: background-color 0.3s;
+ color:green; 
+}

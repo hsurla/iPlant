@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <style>
+            body{
+                background-image: url("h_images/background-image2.jpeg");
+                color: white;
+            }
+            header a.logo{
+                text-align: left;
+            }
+            header img{
+                max-width: 100px;
+                height: auto;
+                border-radius: 50%;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 20px;
+                color: #fff;
+                position: relative;
+            }
+            .logo-container{
+                display: flex;
+                align-items: center;
+            }
+            .logo{
+                display: block;
+                align-items: center;
+            }
+            .user-details{
+                display: flex;
+                align-items: center;
+            }
+            .user-details img{
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 10px;
+            }
+            .cart-button{
+                position: absolute;
+                right: 150px;
+            }
+            a.cart-icon{
+                font-size: 24px;
+                color: #fff;
+                text-decoration: none;
+                margin-right: 10px;
+            }
+            a.cart-icon:hover{
+                color: #f0f0f0;
+            }
+            .user1{
+                text-decoration: none;
+                color: white;
+            }
+            ul{
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            ul li {
+                display: inline-block;
+                position: relative;
+            }
+            ul li:hover ul {
+                display: block;
+            }
+            ul li ul {
+                position: absolute;
+                width: 100px;
+                height: 75px;
+                display: none;
+                background-color: white;
+                right: 0;
+            }
+            ul li ul li {
+                height: 25px;
+                display: block;
+            }
+            ul li ul li a {
+                display: block !important;
+                color: black;
+                padding: 1px;
+            }
+            .menu{
+                position: relative;
+                right: 575px;
+                display: inline-block;
+            }
+            .menu_content{
+                display: none;
+                position: absolute;
+                min-width: 160px;
+                background-color: white;
+                border: 1px solid #ccc;
+                left: 0;
+            }
+            .menu:hover .menu_content{
+                display: block;
+            }
+            .menu_content a{
+                color: black;
+                text-decoration: none;
+                display: block;
+                padding: 8px 16px;
+            }
+            .menu:hover{
+                display: block;
+            }
+            .menu_content a:hover{
+                background-color: #777;
+            }
+            .menu_btn{
+                background-color: transparent;
+                border: none;
+                color: white;
+                font-size: large;
+                cursor: pointer;
+            }
+            .menu_btn:hover{
+                transition: all 0.2s;
+            }
+            /*Header styles*/
+
+            h1{
+                text-align: center;
+                font-size: 50px;
+                color: white;
+            }
+            .button_container{
+                display: flex;
+                align-items: center;
+            }
+            .round{
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background-color: white;
+                color: black;
+                font-size: 16px;
+                cursor: pointer;
+                outline: none;
+                border: none;
+                transition: transform 0.3s ease;
+            }
+            .round:hover{
+                transform: rotate(90deg);
+            }
+            .drop{
+                position: relative;
+            }
+            .drop_content{
+                display: none;
+                position: absolute;
+                top: 30px;
+                left: 0;
+            }
+            .drop_content span{
+                display: block;
+                padding: 10px;
+            }
+            .drop:hover .drop_content{
+                display: block;
+            }
+            #delivery,#customer{
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header">
+            <div class="logo-container">
+                <a href="iPlant.html" class="logo"><img src="h_images\logo.png"></href></a>
+            </div>
+            <div class="menu">
+                <button class="menu_btn">Menu</button>
+                <div class="menu_content">
+                    <a href="#"><p>Customer Service</p></a>
+                    <a href="#"><p>Tools</p></a>
+                </div>
+            </div>
+            <div class="cart-button">
+                <a href="cart.html" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
+            </div>
+            <div class="user-details">
+                <ul>
+                    <li>
+                        <a href="#" class="user"><img src="h_images\user-profile.jpg"></a>
+                        <a href="#" class="user1"><span>User123</span></a>
+                        <ul>
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="Help.html">Help</a></li>
+                            <li><a href="signout.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </header><br><!--Header-->
+
+
+        <h1><u>Help</u></h1>
+        <div class="button_container">
+            <div class="drop">
+                <button class="round" id="order">+</button> <span>Order Related</span>
+                <div class="drop_content">
+                    <span>Hi</span>
+                </div>
+            </div>
+        </div>
+        <div class="button_container">
+            <div class="drop">
+                <button class="round" id="delivery">+</button> <span>Delivery Related</span>
+                <div class="drop_content">
+                    <span>Hi</span>
+                </div>
+            </div>
+        </div>
+        <div class="button_container">
+            <div class="drop">
+                <button class="round" id="customer">+</button> <span>Customer Related</span>
+                <div class="drop_content">
+                    <span>Hi</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
